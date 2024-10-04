@@ -96,8 +96,6 @@ def load_index():
         return pd.read_pickle('index_project_details.pkl')
 
 
-#####
-
 async def api_request(index, data_api):
     url = f"https://api.catarse.me/project_details?project_id=eq.{index}"
     try:
@@ -130,7 +128,7 @@ async def process_data(indices, data_api, per_minute=200):
 
 
     while all_tasks:
-        # Process up to per_minute tasks
+        # A variavel per_minute indica o Número de processos por task
         batch = all_tasks[:per_minute]
         all_tasks = all_tasks[per_minute:]
 
